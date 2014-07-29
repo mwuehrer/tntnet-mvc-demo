@@ -1,0 +1,30 @@
+<%session scope="shared">
+unsigned int s_page_cnt;
+</%session>
+
+<h2>Index-Content</h2>
+
+<div>
+You requested the page <$ s_page_cnt $>-times.<br>
+</div>
+
+<div>
+This page is written in C++ (by tntnet), but it also has a sister-page (written in php), which has the same features. <br>
+Both pages were written, to compare the speed of tntnet against php.
+</div>
+
+<h3>You have the following possibilities:</h3>
+
+<ul>
+<li><a href="/fibonacci">Fibonacci</a></li>
+<li><a href="/sort_int">Sort Int</a></li>
+<li><a href="/js/index.html">Loads of JS-files</a></li>
+<li><a href="/static_resource.htm">Static Resource</a></li>
+<li><a href="/tux.svg">Tux</a></li>
+</ul>
+
+<h3>Or you go to the sister-page:</h3>
+
+<div>
+<a href="/index.php">Page in PHP</a>
+</div>

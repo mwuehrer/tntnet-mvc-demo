@@ -1,0 +1,26 @@
+<%pre>
+#include "config.h"
+</%pre>
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="TNTNET MVC Demo">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <title>TNTNET MVC Demo</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">TNTNET MVC Demo</a></h1>
+        </header>
+        <main>
+            <& (request.getArg("next")) qparam >
+        </main>
+        <footer>
+            <a href="https://github.com/mwuehrer/tntnet-mvc-demo"><%out> PACKAGE_STRING </%out></a>
+            under GPLv3
+        </footer>
+    </body>
+</html>

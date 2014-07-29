@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sample logging-properties for application main
+  put this in main.properties and use:
+    log_init("main.properties");
+  in your application to initialize logging
+
+  define categories with:
+    log_define("some.category")
+  this defines a static function, so you must put it outside other functions.
+  you can define a category per file or a category per namespace.
+
+  print logging-messages with:
+    log_fatal("some fatal message");
+    log_error("some error message");
+    log_warn("some warn message");
+    log_info("some info message");
+    log_debug("some debug message");
+
+-->
+<logging>
+    <rootlogger>INFO</rootlogger>
+    <loggers>
+        <logger>
+            <category>main</category>
+            <level>DEBUG</level>
+        </logger>
+        <logger>
+            <category>controller.index</category>
+            <level>DEBUG</level>
+        </logger>
+        <logger>
+            <category>tntnet.httpreply</category>
+            <level>TRACE</level>
+        </logger>
+        <logger>
+            <category>tntnet.mbcomponent</category>
+            <level>TRACE</level>
+        </logger>
+        <logger>
+            <category>tntnet.static</category>
+            <level>TRACE</level>
+        </logger>
+    </loggers>
+  <!-- <file>main.log</file> -->      <!--uncomment if you want to log to a file -->
+  <!-- <maxfilesize>1MB</maxfilesize> -->
+  <!-- <maxbackupindex>2</maxbackupindex> -->
+  <!-- <host>localhost:1234</host> --> <!--  # send log-messages with udp -->
+</logging>
+

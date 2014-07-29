@@ -1,0 +1,22 @@
+<%request scope="shared" include="model/sort_int.h">
+model::sort_t<int> s_data;
+</%request>
+
+<h2>Sort Int</h2>
+
+<div>
+Press the Button, to sort n-Elements:
+<form method='get'>
+<input type="submit" name="arg_num" value="10000">
+<input type="submit" name="arg_num" value="100000">
+<input type="submit" name="arg_num" value="1000000">
+<input type="submit" name="arg_num" value="5000000">
+</form>
+</div>
+
+<h3>Sorted <$ s_data.get_arg_num() $> Integers (calculated in <$ s_data.get_time()$> milliseconds):</h3>
+<div>
+% for (int i:*s_data.get_list()) {
+<$ i $>,
+% }
+</div>

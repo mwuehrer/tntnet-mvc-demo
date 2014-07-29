@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This is the main configuration file for tntnet.
+
+  You can find documentation about the parameters in the man page tntnet.xml(7)
+  -->
+<tntnet>
+  <virtualhosts>
+    <virtualhost>
+      <hostname>^.*$</hostname>
+      <mappings>
+
+        <!-- Route for static files which are compiled into executeable -->
+        <mapping>
+            <url>^/(.*)$</url>
+            <target>resources</target>
+            <pathinfo>resources/$1</pathinfo>
+        </mapping>
+
+        <!-- Route for static files not included into executeable-->
+        <mapping>
+            <url>^/(.*)$</url>
+            <target>static@tntnet</target>
+            <pathinfo>www/$1</pathinfo>
+        </mapping>
+
+        <!-- Route for index-controller -->
+        <mapping>
+            <url>^/$</url>
+            <target>controller/index</target>
+        </mapping>
+
+        <!-- Route for index-view -->
+        <mapping>
+            <url>^/$</url>
+            <target>frame</target>
+            <args>
+              <next>view/index</next>
+            </args>
+        </mapping>
+
+        <!-- Route for controllers -->
+        <mapping>
+            <url>^/(.*)$</url>
+            <target>controller/$1</target>
+        </mapping>
+
+        <!-- Route for views -->
+        <mapping>
+            <url>^/(.*)$</url>
+            <target>frame</target>
+            <args>
+              <next>view/$1</next>
+            </args>
+        </mapping>
+
+      </mappings>
+    </virtualhost>
+  </virtualhosts>
+
+  <!-- listen to a port (empty string means any local interface) -->
+  <listeners>
+    <listener>
+      <port>8080</port>
+    </listener>
+
+  <!-- a certificate enables ssl -->
+  <!--
+    <listener>
+      <port>8443</port>
+      <certificate>tntnet.pem</certificate>
+    </listener>
+    -->
+  </listeners>
+
+  <!-- <maxRequestSize>65536</maxRequestSize> -->
+  <!-- <maxRequestTime>600</maxRequestTime> -->
+  <!-- <user>tntnet</user> -->
+  <!-- <group>tntnet</group> -->
+  <!-- <dir>/</dir> -->
+  <!-- <chrootdir>/var/safedir</chrootdir> -->
+  <!-- <pidfile>/var/run/tntnet.pid</pidfile> -->
+  <!-- <daemon>0</daemon> -->
+  <!-- <minThreads>5</minThreads> -->
+  <!-- <maxThreads>100</maxThreads> -->
+  <!-- <threadStartDelay>10</threadStartDelay> -->
+  <!-- <queueSize>1000</queueSize> -->
+  <!--
+  <compPath>
+    <entry>path1</entry>
+    <entry>path2</entry>
+  </compPath>
+   -->
+  <!-- <bufferSize>16384</bufferSize> -->
+  <!-- <socketReadTimeout>10</socketReadTimeout> -->
+  <!-- <socketWriteTimeout>10000</socketWriteTimeout> -->
+  <!-- <keepAliveTimeout>15000</keepAliveTimeout> -->
+  <!-- <keepAliveMax>1000</keepAliveMax> -->
+  <!-- <sessionTimeout>300</sessionTimeout> -->
+  <!-- <listenBacklog>64</listenBacklog> -->
+  <!-- <listenRetry>5</listenRetry> -->
+  <enableCompression>yes</enableCompression>
+  <!-- <mimeDb>/etc/mime.types</mimeDb> -->
+  <minCompressSize>512</minCompressSize>
+  <!-- <maxUrlMapCache>8192</maxUrlMapCache> -->
+  <!-- <defaultContentType>text/html; charset=UTF-8</defaultContentType> -->
+  <!-- <accessLog>/var/log/tntnet/access.log</accessLog> -->
+  <!-- <errorLog>/var/log/tntnet/error.log</errorLog> -->
+  <!-- <maxBackgroundTasks>5</maxBackgroundTasks> -->
+</tntnet>

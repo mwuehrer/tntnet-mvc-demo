@@ -1,0 +1,12 @@
+h1 {
+    color: green;
+}
+
+h2, h3 {
+    color: red;
+}
+
+footer {
+    font-size: smaller;
+    margin-top: 2em;
+}
